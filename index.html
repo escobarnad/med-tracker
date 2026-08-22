@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Medication Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <h1>Denisita's Medication Tracker</h1>
+
+<div class="dose">
+  <label class="switch">
+    <input type="checkbox" id="breakfastToggle">
+    <span class="slider"></span>
+  </label>
+  <p>Breakfast</p>
+  <p id="breakfastTime"></p>
+</div>
+
+<div class="dose">
+  <label class="switch">
+    <input type="checkbox" id="lunchToggle">
+    <span class="slider"></span>
+  </label>
+  <p>Lunch</p>
+  <p id="lunchTime"></p>
+</div>
+
+
+  <script src="app.js"></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("service-worker.js");
+  }
+</script>
+</body>
+</html>
