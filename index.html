@@ -3,38 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Medication Tracker</title>
+  <title>Denisita's Medication Tracker</title>
   <link rel="stylesheet" href="style.css">
   <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/Pill_icon.jfif">
 </head>
+
 <body>
+  <div class="container">
+    <h1>Denisita’s Medication Tracker</h1>
 
- <h1>Denisita's Medication Tracker</h1>
+    <div class="toggle-row">
+      <label class="toggle-label">
+        <span>Breakfast</span>
+        <input type="checkbox" id="breakfastToggle">
+        <span class="slider"></span>
+      </label>
+      <div id="breakfastTime" class="time-label"></div>
+    </div>
 
-<div class="dose">
-  <label class="switch">
-    <input type="checkbox" id="breakfastToggle">
-    <span class="slider"></span>
-  </label>
-  <p>Breakfast</p>
-  <p id="breakfastTime"></p>
-</div>
-
-<div class="dose">
-  <label class="switch">
-    <input type="checkbox" id="lunchToggle">
-    <span class="slider"></span>
-  </label>
-  <p>Lunch</p>
-  <p id="lunchTime"></p>
-</div>
-
+    <div class="toggle-row">
+      <label class="toggle-label">
+        <span>Lunch</span>
+        <input type="checkbox" id="lunchToggle">
+        <span class="slider"></span>
+      </label>
+      <div id="lunchTime" class="time-label"></div>
+    </div>
+  </div>
 
   <script src="app.js"></script>
   <script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
-  }
-</script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
 </body>
 </html>

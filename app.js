@@ -1,3 +1,24 @@
+// --- NFC URL PARAMETER HANDLING ---
+const params = new URLSearchParams(window.location.search);
+const toggle = params.get("toggle");
+
+// This function flips Breakfast or Lunch in localStorage
+function toggleMed(type) {
+  if (type === "breakfast") {
+    state.breakfastTaken = !state.breakfastTaken;
+    state.breakfastTime = state.breakfastTaken ? new Date().toLocaleTimeString() : null;
+  }
+
+  if (type === "lunch") {
+    state.lunchTaken = !state.lunchTaken;
+    state.lunchTime = state.lunchTaken ? new Date().toLocaleTimeString() : null;
+  }
+
+  saveState();
+  render();
+}
+
+// --- EXISTING CODE ---
 function loadState() {
   const stored = JSON.parse(localStorage.getItem("medTracker"));
   const today = new Date().toISOString().split("T")[0];
@@ -47,4 +68,19 @@ document.getElementById("lunchToggle").addEventListener("change", (e) => {
   render();
 });
 
+// --- APPLY NFC TOGGLE IF PRESENT ---
+if (toggle === "breakfast") {
+  toggleMed("breakfast");
+}
+
+if (toggle === "lunch") {
+  toggleMed("lunch");
+}
+
+// Optional: clean the URL after toggling
+if (toggle) {
+  window.history.replaceState({}, document.title, "index.html");
+}
+
 render();
+
