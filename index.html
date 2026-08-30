@@ -1,41 +1,54 @@
-<body>
-  <div class="container">
-    <h1>Denisita’s Medication Tracker</h1>
-
-    <div class="toggle-row">
-      <label class="toggle-label">
-        <span>Breakfast</span>
-        <input type="checkbox" id="breakfastToggle">
-        <span class="slider"></span>
-      </label>
-      <div id="breakfastTime" class="time-label"></div>
-    </div>
-
-    <div class="toggle-row">
-      <label class="toggle-label">
-        <span>Lunch</span>
-        <input type="checkbox" id="lunchToggle">
-        <span class="slider"></span>
-      </label>
-      <div id="lunchTime" class="time-label"></div>
-    </div>
-
-    <!-- NIGHT MUST BE INSIDE THE CONTAINER -->
-    <div class="toggle-row">
-      <label class="toggle-label">
-        <span>Night</span>
-        <input type="checkbox" id="nightToggle">
-        <span class="slider"></span>
-      </label>
-      <div id="nightTime" class="time-label"></div>
-    </div>
-
-  </div> <!-- container ends HERE -->
-
-  <script src="/med-tracker/app.js"></script>
-  <script>
-    if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.register("/med-tracker/service-worker.js");
-    }
-  </script>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denisita's Medication Tracker</title>
+  
+    <!-- Absolute paths so NFC URLs don't break CSS/JS -->
+    <link rel="stylesheet" href="/med-tracker/style.css">
+    <link rel="manifest" href="/med-tracker/manifest.json">
+    <link rel="icon" href="/med-tracker/icons/Pill_icon.jfif">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Denisita’s Medication Tracker</h1>
+  
+      <div class="toggle-row">
+        <label class="toggle-label">
+          <span>Breakfast</span>
+          <input type="checkbox" id="breakfastToggle">
+          <span class="slider"></span>
+        </label>
+        <div id="breakfastTime" class="time-label"></div>
+      </div>
+  
+      <div class="toggle-row">
+        <label class="toggle-label">
+          <span>Lunch</span>
+          <input type="checkbox" id="lunchToggle">
+          <span class="slider"></span>
+        </label>
+        <div id="lunchTime" class="time-label"></div>
+      </div>
+  
+      <!-- NIGHT MUST BE INSIDE THE CONTAINER -->
+      <div class="toggle-row">
+        <label class="toggle-label">
+          <span>Night</span>
+          <input type="checkbox" id="nightToggle">
+          <span class="slider"></span>
+        </label>
+        <div id="nightTime" class="time-label"></div>
+      </div>
+  
+    </div> <!-- container ends HERE -->
+  
+    <script src="/med-tracker/app.js"></script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("/med-tracker/service-worker.js");
+      }
+    </script>
+  </body>  
+</html>
