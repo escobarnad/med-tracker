@@ -3,17 +3,23 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Denisita's Medication Tracker</title>
-  
+    <title>Denisita's Tracker</title>
+
     <!-- Absolute paths so NFC URLs don't break CSS/JS -->
     <link rel="stylesheet" href="/med-tracker/style.css">
     <link rel="manifest" href="/med-tracker/manifest.json">
-    <link rel="icon" href="/med-tracker/icons/Pill_icon.jfif">
+    <link rel="icon" href="/med-tracker/icons/Denisita-Tracker-Logo.jpg">
   </head>
+
   <body>
     <div class="container">
-      <h1>Denisita’s Medication Tracker</h1>
-  
+
+      <!-- Logo -->
+      <img src="/med-tracker/icons/Denisita-Tracker-Logo.jpg" class="app-logo" alt="Denisita Logo">
+
+      <h1>Denisita’s Tracker</h1>
+
+      <!-- Medication Toggles -->
       <div class="toggle-row">
         <label class="toggle-label">
           <span>Breakfast</span>
@@ -22,7 +28,7 @@
         </label>
         <div id="breakfastTime" class="time-label"></div>
       </div>
-  
+
       <div class="toggle-row">
         <label class="toggle-label">
           <span>Lunch</span>
@@ -31,8 +37,7 @@
         </label>
         <div id="lunchTime" class="time-label"></div>
       </div>
-  
-      <!-- NIGHT MUST BE INSIDE THE CONTAINER -->
+
       <div class="toggle-row">
         <label class="toggle-label">
           <span>Night</span>
@@ -41,14 +46,14 @@
         </label>
         <div id="nightTime" class="time-label"></div>
       </div>
-  
-    </div> <!-- container ends HERE -->
-  
+
+    </div>
+
     <script src="/med-tracker/app.js"></script>
     <script>
       if ("serviceWorker" in navigator) {
         navigator.serviceWorker.register("/med-tracker/service-worker.js");
       }
     </script>
-  </body>  
+  </body>
 </html>

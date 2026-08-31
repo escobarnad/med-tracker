@@ -1,7 +1,7 @@
 /* --- GLOBAL LAYOUT --- */
 body {
   font-family: "Inter", Arial, sans-serif;
-  background: #f5f6f8;
+  background: #f3f5f7;
   margin: 0;
   padding: 0;
   display: flex;
@@ -13,23 +13,32 @@ body {
 /* --- CARD CONTAINER --- */
 .container {
   background: white;
-  padding: 30px;
-  border-radius: 20px;
-  width: 320px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  padding: 32px;
+  border-radius: 20px; /* medium rounded corners */
+  width: 340px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
   text-align: center;
 }
 
+/* --- LOGO --- */
+.app-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px; /* match logo shape */
+  margin-bottom: 12px;
+}
+
+/* --- TITLE --- */
 h1 {
-  font-size: 20px;
-  margin-bottom: 25px;
-  color: #333;
+  font-size: 22px;
+  margin-bottom: 28px;
+  color: #222;
   font-weight: 600;
 }
 
 /* --- TOGGLE ROW --- */
 .toggle-row {
-  margin-bottom: 25px;
+  margin-bottom: 26px;
 }
 
 /* --- LABEL + TOGGLE WRAPPER --- */
@@ -37,11 +46,12 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f0f1f3;
-  padding: 12px 16px;
-  border-radius: 12px;
+  background: #f0f2f4;
+  padding: 14px 18px;
+  border-radius: 16px;
   cursor: pointer;
   position: relative;
+  border: 1px solid #e2e4e7;
 }
 
 .toggle-label span {
@@ -56,18 +66,18 @@ h1 {
 
 /* --- SLIDER --- */
 .slider {
-  width: 45px;
-  height: 24px;
-  background: #ccc;
-  border-radius: 24px;
+  width: 48px;
+  height: 26px;
+  background: #cfd3d6;
+  border-radius: 26px;
   position: relative;
   transition: 0.3s;
 }
 
 .slider::before {
   content: "";
-  width: 20px;
-  height: 20px;
+  width: 22px;
+  height: 22px;
   background: white;
   border-radius: 50%;
   position: absolute;
@@ -76,13 +86,13 @@ h1 {
   transition: 0.3s;
 }
 
-/* ON state */
+/* ON state — TEAL PRIMARY */
 input:checked + .slider {
-  background: #4caf50;
+  background: #1abcbd; /* teal */
 }
 
 input:checked + .slider::before {
-  transform: translateX(21px);
+  transform: translateX(22px);
 }
 
 /* --- TIME LABEL --- */

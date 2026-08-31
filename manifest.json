@@ -1,15 +1,15 @@
 {
-  "name": "Medication Tracker",
-  "short_name": "MedTracker",
-  "description": "Simple ADHD medication tracker with two daily doses.",
+  "name": "Denisita's Tracker",
+  "short_name": "DenisitaTracker",
+  "description": "Daily tracker with medication and activity toggles.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#4CAF50",
+  "theme_color": "#1abcbd", 
   "icons": [
     {
-      "src": "icons/Pill_icon.jfif",
+      "src": "icons/Denisita-Tracker-Logo.jpg",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
