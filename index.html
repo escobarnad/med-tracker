@@ -142,11 +142,15 @@
 
     </div>
 
-    <script src="/med-tracker/app.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Temporarily disable service worker while we debug NFC -->
+    <!--
     <script>
       if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("/med-tracker/service-worker.js");
+        navigator.serviceWorker.register("service-worker.js");
       }
     </script>
+    -->
   </body>
 </html>
