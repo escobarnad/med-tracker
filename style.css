@@ -50,8 +50,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
+.screen.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.screen.dimmed {
+  opacity: 0.4;
+}
+
+/* --- SCREEN INNER --- */
 .screen-inner {
   width: 100%;
   padding-bottom: 20px;
@@ -103,7 +116,7 @@ body {
   border-radius: 26px;
   position: relative;
   transition: 0.3s;
-  pointer-events: none; /* ensure clicks go to the label/input */
+  pointer-events: none;
 }
 
 .slider::before {
@@ -118,7 +131,6 @@ body {
   transition: 0.3s;
 }
 
-/* knob movement when checked */
 .toggle-label input:checked + .slider::before {
   transform: translateX(22px);
 }

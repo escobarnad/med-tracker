@@ -78,7 +78,6 @@ function saveState() {
 ------------------------------ */
 
 function render() {
-  // Meds
   document.getElementById("breakfastToggle").checked = state.breakfastTaken;
   document.getElementById("breakfastTime").textContent =
     state.breakfastTime ? `Time: ${state.breakfastTime}` : "";
@@ -91,7 +90,6 @@ function render() {
   document.getElementById("nightTime").textContent =
     state.nightTime ? `Time: ${state.nightTime}` : "";
 
-  // Teeth
   document.getElementById("brushMorning").checked = state.brushMorning;
   document.getElementById("brushMorningTime").textContent =
     state.brushMorningTime ? `Time: ${state.brushMorningTime}` : "";
@@ -100,7 +98,6 @@ function render() {
   document.getElementById("brushNightTime").textContent =
     state.brushNightTime ? `Time: ${state.brushNightTime}` : "";
 
-  // Milo
   document.getElementById("miloBreakfast").checked = state.miloBreakfast;
   document.getElementById("miloBreakfastTime").textContent =
     state.miloBreakfastTime ? `Time: ${state.miloBreakfastTime}` : "";
@@ -132,7 +129,7 @@ function addToggleListener(id, stateKey, timeKey) {
     state[timeKey] = e.target.checked ? new Date().toLocaleTimeString() : null;
     saveState();
     render();
-    applyColors(); // keep colours in sync with state
+    applyColors();
   });
 }
 
@@ -183,41 +180,46 @@ if (toggle) {
 }
 
 /* ------------------------------
-   CAROUSEL LOGIC + COLOR UPDATES
+   CAROUSEL LOGIC + ANIMATIONS
 ------------------------------ */
 
 let currentScreen = 0;
 const carousel = document.getElementById("carousel");
 const pillTitle = document.getElementById("pillTitle");
+const screens = document.querySelectorAll(".screen");
 
 function applyColors() {
   const color = screenColors[currentScreen];
   const pastel = pastelColors[currentScreen];
 
-  // Pill title
   pillTitle.style.backgroundColor = color;
 
-  // Arrows
   document.getElementById("prevScreen").style.backgroundColor = color;
   document.getElementById("nextScreen").style.backgroundColor = color;
 
-  // Toggle ON color + pastel background
   document.querySelectorAll(".toggle-label").forEach((label) => {
     label.style.backgroundColor = pastel;
 
     const slider = label.querySelector(".slider");
     const input = label.querySelector("input");
 
-    if (input.checked) {
-      slider.style.backgroundColor = color;
-    } else {
-      slider.style.backgroundColor = "#cfd3d6";
-    }
+    slider.style.backgroundColor = input.checked ? color : "#cfd3d6";
   });
 }
 
 function updateScreen() {
   carousel.style.transform = `translateX(-${currentScreen * 100}%)`;
+
+  screens.forEach((screen, index) => {
+    screen.classList.remove("active", "dimmed");
+
+    if (index === currentScreen) {
+      screen.classList.add("active");
+    } else {
+      screen.classList.add("dimmed");
+    }
+  });
+
   pillTitle.textContent = ["Meds Tracker", "Teeth Cleaning", "Milo’s Tracker"][currentScreen];
   applyColors();
 }
