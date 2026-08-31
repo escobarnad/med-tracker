@@ -186,7 +186,6 @@ const nfcMap = {
 if (toggle && nfcMap[toggle]) {
   const [stateKey, timeKey] = nfcMap[toggle];
 
-  // Flip the toggle
   state[stateKey] = !state[stateKey];
   state[timeKey] = state[stateKey] ? new Date().toLocaleTimeString() : null;
 
@@ -194,10 +193,9 @@ if (toggle && nfcMap[toggle]) {
   render();
   applyColors();
 
-  // Remove ?toggle=... from URL
-  window.history.replaceState({}, document.title, "index.html");
+  // ⭐ FIX: stay inside /med-tracker/ instead of navigating out
+  window.history.replaceState({}, document.title, window.location.pathname);
 }
-
 
 /* ------------------------------
    CAROUSEL LOGIC + ANIMATIONS
