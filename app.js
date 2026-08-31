@@ -165,19 +165,39 @@ setInterval(() => {
 }, 60000);
 
 /* ------------------------------
-   NFC QUICK TOGGLE
+   NFC QUICK TOGGLE (FULL SET)
 ------------------------------ */
 
-if (toggle) {
-  if (toggle === "breakfast") state.breakfastTaken = !state.breakfastTaken;
-  if (toggle === "lunch") state.lunchTaken = !state.lunchTaken;
-  if (toggle === "night") state.nightTaken = !state.nightTaken;
+const nfcMap = {
+  breakfast: ["breakfastTaken", "breakfastTime"],
+  lunch: ["lunchTaken", "lunchTime"],
+  night: ["nightTaken", "nightTime"],
+
+  brushMorning: ["brushMorning", "brushMorningTime"],
+  brushNight: ["brushNight", "brushNightTime"],
+
+  miloBreakfast: ["miloBreakfast", "miloBreakfastTime"],
+  miloLunch: ["miloLunch", "miloLunchTime"],
+  miloSnackie: ["miloSnackie", "miloSnackieTime"],
+  miloDinner: ["miloDinner", "miloDinnerTime"],
+  miloBrushTeeth: ["miloBrushTeeth", "miloBrushTeethTime"]
+};
+
+if (toggle && nfcMap[toggle]) {
+  const [stateKey, timeKey] = nfcMap[toggle];
+
+  // Flip the toggle
+  state[stateKey] = !state[stateKey];
+  state[timeKey] = state[stateKey] ? new Date().toLocaleTimeString() : null;
 
   saveState();
   render();
   applyColors();
+
+  // Remove ?toggle=... from URL
   window.history.replaceState({}, document.title, "index.html");
 }
+
 
 /* ------------------------------
    CAROUSEL LOGIC + ANIMATIONS
