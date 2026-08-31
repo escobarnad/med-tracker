@@ -28,11 +28,20 @@ function loadState() {
       brushNight: false,
       brushNightTime: null,
 
-      miloWalk: false,
-      miloWalkTime: null,
+      miloBreakfast: false,
+      miloBreakfastTime: null,
 
-      miloFood: false,
-      miloFoodTime: null
+      miloLunch: false,
+      miloLunchTime: null,
+
+      miloSnackie: false,
+      miloSnackieTime: null,
+
+      miloDinner: false,
+      miloDinnerTime: null,
+
+      miloBrushTeeth: false,
+      miloBrushTeethTime: null
     };
 
     localStorage.setItem("medTracker", JSON.stringify(fresh));
@@ -76,13 +85,25 @@ function render() {
     state.brushNightTime ? `Time: ${state.brushNightTime}` : "";
 
   // Milo
-  document.getElementById("miloWalk").checked = state.miloWalk;
-  document.getElementById("miloWalkTime").textContent =
-    state.miloWalkTime ? `Time: ${state.miloWalkTime}` : "";
+  document.getElementById("miloBreakfast").checked = state.miloBreakfast;
+  document.getElementById("miloBreakfastTime").textContent =
+    state.miloBreakfastTime ? `Time: ${state.miloBreakfastTime}` : "";
 
-  document.getElementById("miloFood").checked = state.miloFood;
-  document.getElementById("miloFoodTime").textContent =
-    state.miloFoodTime ? `Time: ${state.miloFoodTime}` : "";
+  document.getElementById("miloLunch").checked = state.miloLunch;
+  document.getElementById("miloLunchTime").textContent =
+    state.miloLunchTime ? `Time: ${state.miloLunchTime}` : "";
+
+  document.getElementById("miloSnackie").checked = state.miloSnackie;
+  document.getElementById("miloSnackieTime").textContent =
+    state.miloSnackieTime ? `Time: ${state.miloSnackieTime}` : "";
+
+  document.getElementById("miloDinner").checked = state.miloDinner;
+  document.getElementById("miloDinnerTime").textContent =
+    state.miloDinnerTime ? `Time: ${state.miloDinnerTime}` : "";
+
+  document.getElementById("miloBrushTeeth").checked = state.miloBrushTeeth;
+  document.getElementById("miloBrushTeethTime").textContent =
+    state.miloBrushTeethTime ? `Time: ${state.miloBrushTeethTime}` : "";
 }
 
 /* ------------------------------
@@ -105,8 +126,11 @@ addToggleListener("nightToggle", "nightTaken", "nightTime");
 addToggleListener("brushMorning", "brushMorning", "brushMorningTime");
 addToggleListener("brushNight", "brushNight", "brushNightTime");
 
-addToggleListener("miloWalk", "miloWalk", "miloWalkTime");
-addToggleListener("miloFood", "miloFood", "miloFoodTime");
+addToggleListener("miloBreakfast", "miloBreakfast", "miloBreakfastTime");
+addToggleListener("miloLunch", "miloLunch", "miloLunchTime");
+addToggleListener("miloSnackie", "miloSnackie", "miloSnackieTime");
+addToggleListener("miloDinner", "miloDinner", "miloDinnerTime");
+addToggleListener("miloBrushTeeth", "miloBrushTeeth", "miloBrushTeethTime");
 
 /* ------------------------------
    MIDNIGHT RESET
