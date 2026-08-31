@@ -1,17 +1,15 @@
 {
   "name": "Denisita's Tracker",
-  "short_name": "DenisitaTracker",
-  "description": "Daily tracker with medication and activity toggles.",
-  "start_url": "./index.html",
-  "scope": "./",
+  "short_name": "Tracker",
+  "start_url": "/med-tracker/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#1abcbd",
   "icons": [
     {
-      "src": "icons/Denisita-Tracker-Logo.jpg",
+      "src": "/med-tracker/icons/Denisita-Tracker-Logo.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
