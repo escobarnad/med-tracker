@@ -248,32 +248,36 @@ carousel.addEventListener("touchend", (e) => {
 });
 
 /* ------------------------------
-   NFC QUICK TOGGLE (NOW IN CORRECT POSITION)
+   NFC QUICK TOGGLE (FINAL WORKING VERSION)
 ------------------------------ */
 
 const nfcMap = {
-  breakfast: ["breakfastTaken", "breakfastTime"],
-  lunch: ["lunchTaken", "lunchTime"],
-  night: ["nightTaken", "nightTime"],
+  breakfast: ["breakfastTaken", "breakfastTime", 0],
+  lunch: ["lunchTaken", "lunchTime", 0],
+  night: ["nightTaken", "nightTime", 0],
 
-  brushMorning: ["brushMorning", "brushMorningTime"],
-  brushNight: ["brushNight", "brushNightTime"],
+  brushMorning: ["brushMorning", "brushMorningTime", 1],
+  brushNight: ["brushNight", "brushNightTime", 1],
 
-  miloBreakfast: ["miloBreakfast", "miloBreakfastTime"],
-  miloLunch: ["miloLunch", "miloLunchTime"],
-  miloSnackie: ["miloSnackie", "miloSnackieTime"],
-  miloDinner: ["miloDinner", "miloDinnerTime"],
-  miloBrushTeeth: ["miloBrushTeeth", "miloBrushTeethTime"]
+  miloBreakfast: ["miloBreakfast", "miloBreakfastTime", 2],
+  miloLunch: ["miloLunch", "miloLunchTime", 2],
+  miloSnackie: ["miloSnackie", "miloSnackieTime", 2],
+  miloDinner: ["miloDinner", "miloDinnerTime", 2],
+  miloBrushTeeth: ["miloBrushTeeth", "miloBrushTeethTime", 2]
 };
 
 if (toggle && nfcMap[toggle]) {
-  const [stateKey, timeKey] = nfcMap[toggle];
+  const [stateKey, timeKey, screenIndex] = nfcMap[toggle];
 
   state[stateKey] = !state[stateKey];
   state[timeKey] = state[stateKey] ? new Date().toLocaleTimeString() : null;
 
   saveState();
+
+  currentScreen = screenIndex;
+
   render();
+  updateScreen();
   applyColors();
 
   window.history.replaceState({}, document.title, window.location.pathname);
