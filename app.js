@@ -208,17 +208,23 @@ function applyColors() {
 }
 
 function updateScreen() {
+  screens.forEach((screen) => screen.classList.remove("active", "dimmed"));
+
+  screens[currentScreen].classList.add("dimmed");
+
   carousel.style.transform = `translateX(-${currentScreen * 100}%)`;
 
-  screens.forEach((screen, index) => {
-    screen.classList.remove("active", "dimmed");
+  setTimeout(() => {
+    screens.forEach((screen, index) => {
+      screen.classList.remove("active", "dimmed");
 
-    if (index === currentScreen) {
-      screen.classList.add("active");
-    } else {
-      screen.classList.add("dimmed");
-    }
-  });
+      if (index === currentScreen) {
+        screen.classList.add("active");
+      } else {
+        screen.classList.add("dimmed");
+      }
+    });
+  }, 120);
 
   pillTitle.textContent = ["Meds Tracker", "Teeth Cleaning", "Milo’s Tracker"][currentScreen];
   applyColors();
