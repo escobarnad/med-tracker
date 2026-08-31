@@ -23,7 +23,6 @@ body {
 
 /* --- PILL TITLE --- */
 .pill-title {
-  background: #1abcbd;
   color: white;
   padding: 10px 22px;
   font-size: 18px;
@@ -66,7 +65,6 @@ body {
 }
 
 .nav-btn {
-  background: #1abcbd;
   color: white;
   border: none;
   padding: 10px 18px;
@@ -85,17 +83,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f0f2f4;
   padding: 14px 18px;
   border-radius: 16px;
   cursor: pointer;
   position: relative;
   border: 1px solid #e2e4e7;
-}
-
-.toggle-label span {
-  font-size: 16px;
-  color: #333;
 }
 
 /* Hide checkbox */
@@ -123,15 +115,6 @@ body {
   top: 2px;
   left: 2px;
   transition: 0.3s;
-}
-
-/* ON state — TEAL PRIMARY */
-input:checked + .slider {
-  background: #1abcbd;
-}
-
-input:checked + .slider::before {
-  transform: translateX(22px);
 }
 
 /* --- TIME LABEL --- */

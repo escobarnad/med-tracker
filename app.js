@@ -1,4 +1,20 @@
 /* ------------------------------
+   COLOR SYSTEM
+------------------------------ */
+
+const screenColors = [
+  "#3cb371", // green
+  "#1abcbd", // teal
+  "#3b82f6"  // blue
+];
+
+const pastelColors = [
+  "rgba(60, 179, 113, 0.15)", // green pastel
+  "rgba(26, 188, 189, 0.15)", // teal pastel
+  "rgba(59, 130, 246, 0.15)"  // blue pastel
+];
+
+/* ------------------------------
    STATE MANAGEMENT
 ------------------------------ */
 
@@ -164,22 +180,43 @@ if (toggle) {
 }
 
 /* ------------------------------
-   CAROUSEL LOGIC
+   CAROUSEL LOGIC + COLOR UPDATES
 ------------------------------ */
 
 let currentScreen = 0;
 const carousel = document.getElementById("carousel");
 const pillTitle = document.getElementById("pillTitle");
 
-const titles = [
-  "Meds Tracker",
-  "Teeth Cleaning",
-  "Milo’s Tracker"
-];
+function applyColors() {
+  const color = screenColors[currentScreen];
+  const pastel = pastelColors[currentScreen];
+
+  // Pill title
+  pillTitle.style.backgroundColor = color;
+
+  // Arrows
+  document.getElementById("prevScreen").style.backgroundColor = color;
+  document.getElementById("nextScreen").style.backgroundColor = color;
+
+  // Toggle ON color + pastel background
+  document.querySelectorAll(".toggle-label").forEach((label) => {
+    label.style.backgroundColor = pastel;
+
+    const slider = label.querySelector(".slider");
+    const input = label.querySelector("input");
+
+    if (input.checked) {
+      slider.style.backgroundColor = color;
+    } else {
+      slider.style.backgroundColor = "#cfd3d6";
+    }
+  });
+}
 
 function updateScreen() {
   carousel.style.transform = `translateX(-${currentScreen * 100}%)`;
-  pillTitle.textContent = titles[currentScreen];
+  pillTitle.textContent = ["Meds Tracker", "Teeth Cleaning", "Milo’s Tracker"][currentScreen];
+  applyColors();
 }
 
 document.getElementById("nextScreen").addEventListener("click", () => {
