@@ -168,7 +168,10 @@ document.getElementById("prevScreen").addEventListener("click", () => {
   updateScreen();
 });
 
-/* Swipe support */
+/* ------------------------------
+   SWIPE SUPPORT
+------------------------------ */
+
 let startX = 0;
 
 carousel.addEventListener("touchstart", (e) => {
@@ -186,6 +189,10 @@ carousel.addEventListener("touchend", (e) => {
 
   updateScreen();
 });
+
+/* ------------------------------
+   INITIAL RENDER
+------------------------------ */
 
 render();
 updateScreen();
