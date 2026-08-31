@@ -33,15 +33,22 @@ body {
   margin-bottom: 28px;
 }
 
+/* --- CAROUSEL WRAPPER (ISOLATES SCREENS) --- */
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
 /* --- CAROUSEL --- */
 .carousel {
   display: flex;
-  width: 100%;
+  width: 300%;
   transition: transform 0.35s ease;
 }
 
+/* --- SCREEN --- */
 .screen {
-  min-width: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
 }
