@@ -1,6 +1,6 @@
 {
   "name": "Denisita's Tracker",
-  "short_name": "Tracker",
+  "short_name": "Denisita's Tracker",
   "start_url": "/med-tracker/index.html",
   "display": "standalone",
   "background_color": "#ffffff",

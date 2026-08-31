@@ -41,7 +41,7 @@ body {
 /* --- CAROUSEL --- */
 .carousel {
   display: flex;
-  transition: transform 0.35s ease;
+  transition: transform 0.45s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
 /* --- SCREEN --- */
@@ -103,6 +103,7 @@ body {
   border-radius: 26px;
   position: relative;
   transition: 0.3s;
+  pointer-events: none; /* ensure clicks go to the label/input */
 }
 
 .slider::before {
@@ -115,6 +116,11 @@ body {
   top: 2px;
   left: 2px;
   transition: 0.3s;
+}
+
+/* knob movement when checked */
+.toggle-label input:checked + .slider::before {
+  transform: translateX(22px);
 }
 
 /* --- TIME LABEL --- */

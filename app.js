@@ -132,6 +132,7 @@ function addToggleListener(id, stateKey, timeKey) {
     state[timeKey] = e.target.checked ? new Date().toLocaleTimeString() : null;
     saveState();
     render();
+    applyColors(); // keep colours in sync with state
   });
 }
 
@@ -161,6 +162,7 @@ setInterval(() => {
     state = loadState();
     saveState();
     render();
+    applyColors();
     lastDate = currentDate;
   }
 }, 60000);
@@ -176,6 +178,7 @@ if (toggle) {
 
   saveState();
   render();
+  applyColors();
   window.history.replaceState({}, document.title, "index.html");
 }
 
